@@ -9,10 +9,10 @@ class FewShotPosts:
 
         # Automatically create correct path
         if file_path is None:
-
-            BASE_DIR = os.path.dirname(
-                os.path.abspath(__file__)
-            )
+            # Dynamically finds the folder where few_shot.py lives
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            # REMOVE "data" so it reads from the main root folder directly
+            file_path = os.path.join(base_dir, "processed_posts.json")
 
             file_path = os.path.join(
                 BASE_DIR,
